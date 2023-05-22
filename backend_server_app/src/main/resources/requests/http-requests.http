@@ -1,0 +1,400 @@
+###
+POST http://localhost:8080/api/datacenters/overwriteAll
+Content-Type: application/json
+
+[
+  {
+    "name": "Frankfurt",
+    "racks": [
+      {
+        "name": "A1",
+        "processors": [
+          {
+            "label": "XW"
+          },
+          {
+            "label": "KS"
+          },
+          {
+            "label": "RX"
+          },
+          {
+            "label": "ND"
+          },
+          {
+            "label": "ES"
+          }
+        ]
+      },
+      {
+        "name": "A2",
+        "processors": [
+          {
+            "label": "GAS"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "BSD"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "CM"
+          }
+        ]
+      },
+      {
+        "name": "B1",
+        "processors": [
+          {
+            "label": "AM"
+          },
+          {
+            "label": "ZZU"
+          },
+          {
+            "label": "HA"
+          },
+          {
+            "label": "4U"
+          },
+          {
+            "label": "EZ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Amsterdam",
+    "racks": [
+      {
+        "name": "A1",
+        "processors": [
+          {
+            "label": "XW"
+          },
+          {
+            "label": "KS"
+          },
+          {
+            "label": "RX"
+          },
+          {
+            "label": "ND"
+          },
+          {
+            "label": "ES"
+          }
+        ]
+      },
+      {
+        "name": "A2",
+        "processors": [
+          {
+            "label": "GAS"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "BSD"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "CM"
+          }
+        ]
+      },
+      {
+        "name": "B1",
+        "processors": [
+          {
+            "label": "AM"
+          },
+          {
+            "label": "ZZU"
+          },
+          {
+            "label": "HA"
+          },
+          {
+            "label": "4U"
+          },
+          {
+            "label": "EZ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Dublin",
+    "racks": [
+      {
+        "name": "A1",
+        "processors": [
+          {
+            "label": "XW"
+          },
+          {
+            "label": "KS"
+          },
+          {
+            "label": "RX"
+          },
+          {
+            "label": "ND"
+          },
+          {
+            "label": "ES"
+          }
+        ]
+      },
+      {
+        "name": "A2",
+        "processors": [
+          {
+            "label": "GAS"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "BSD"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "CM"
+          }
+        ]
+      },
+      {
+        "name": "B1",
+        "processors": [
+          {
+            "label": "AM"
+          },
+          {
+            "label": "ZZU"
+          },
+          {
+            "label": "HA"
+          },
+          {
+            "label": "4U"
+          },
+          {
+            "label": "EZ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Paris",
+    "racks": [
+      {
+        "name": "A1",
+        "processors": [
+          {
+            "label": "XW"
+          },
+          {
+            "label": "KS"
+          },
+          {
+            "label": "RX"
+          },
+          {
+            "label": "ND"
+          },
+          {
+            "label": "ES"
+          }
+        ]
+      },
+      {
+        "name": "A2",
+        "processors": [
+          {
+            "label": "GAS"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "BSD"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "CM"
+          }
+        ]
+      },
+      {
+        "name": "B1",
+        "processors": [
+          {
+            "label": "AM"
+          },
+          {
+            "label": "ZZU"
+          },
+          {
+            "label": "HA"
+          },
+          {
+            "label": "4U"
+          },
+          {
+            "label": "EZ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Berlin",
+    "racks": [
+      {
+        "name": "A1",
+        "processors": [
+          {
+            "label": "XW"
+          },
+          {
+            "label": "KS"
+          },
+          {
+            "label": "RX"
+          },
+          {
+            "label": "ND"
+          },
+          {
+            "label": "ES"
+          }
+        ]
+      },
+      {
+        "name": "A2",
+        "processors": [
+          {
+            "label": "GAS"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "BSD"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "CM"
+          }
+        ]
+      },
+      {
+        "name": "B1",
+        "processors": [
+          {
+            "label": "AM"
+          },
+          {
+            "label": "ZZU"
+          },
+          {
+            "label": "HA"
+          },
+          {
+            "label": "4U"
+          },
+          {
+            "label": "EZ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "London",
+    "racks": [
+      {
+        "name": "A1",
+        "processors": [
+          {
+            "label": "XW"
+          },
+          {
+            "label": "KS"
+          },
+          {
+            "label": "RX"
+          },
+          {
+            "label": "ND"
+          },
+          {
+            "label": "ES"
+          }
+        ]
+      },
+      {
+        "name": "A2",
+        "processors": [
+          {
+            "label": "GAS"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "BSD"
+          },
+          {
+            "label": "HD"
+          },
+          {
+            "label": "CM"
+          }
+        ]
+      },
+      {
+        "name": "B1",
+        "processors": [
+          {
+            "label": "AM"
+          },
+          {
+            "label": "ZZU"
+          },
+          {
+            "label": "HA"
+          },
+          {
+            "label": "4U"
+          },
+          {
+            "label": "EZ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "In construction",
+    "racks": []
+  }
+]

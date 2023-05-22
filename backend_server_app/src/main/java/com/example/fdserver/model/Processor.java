@@ -1,5 +1,7 @@
 package com.example.fdserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +21,7 @@ public class Processor {
 
     private String label;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(nullable = false, updatable = false)
     private Rack rack;

@@ -56,4 +56,8 @@ public class EntitiesCrudServer {
                 .map(DtoConvertor::fromEntity)
                 .collect(Collectors.toList());
     }
+
+    public List<Datacenter> getAllEntities() {
+        return datacenterRepo.findAll();
+    }
 }

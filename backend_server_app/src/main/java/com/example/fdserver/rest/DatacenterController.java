@@ -22,6 +22,11 @@ public class DatacenterController {
         entitiesCrudServer.overwriteAll(datacenters);
     }
 
+    @GetMapping("entities")
+    public List<Datacenter> getAllEntities() {
+        return entitiesCrudServer.getAllEntities();
+    }
+
     @GetMapping
     public List<DatacenterDto> getAll() {
         return entitiesCrudServer.getAllDataCenters();

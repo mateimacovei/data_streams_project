@@ -1,0 +1,17 @@
+"label": "([A-Z0-9]*)"
+
+"label": "$1",
+            "temperatureMin": null,
+            "temperatureMax": null
+
+
+
+"name": "([A-Z0-9]*)",
+        "processors"
+
+"name": "$1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors"

@@ -2,6 +2,8 @@ package com.example.fdserver.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +23,7 @@ public class Rack {
 
     private String name;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(nullable = false, updatable = false)
     private Datacenter datacenter;

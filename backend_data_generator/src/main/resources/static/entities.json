@@ -1,0 +1,751 @@
+[
+  {
+    "id": 8,
+    "name": "Frankfurt",
+    "racks": [
+      {
+        "id": 19,
+        "name": "A1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 91,
+            "label": "XW",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 92,
+            "label": "KS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 93,
+            "label": "RX",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 94,
+            "label": "ND",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 95,
+            "label": "ES",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "name": "A2",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 96,
+            "label": "GAS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 97,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 98,
+            "label": "BSD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 99,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 100,
+            "label": "CM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "name": "B1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 101,
+            "label": "AM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 102,
+            "label": "ZZU",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 103,
+            "label": "HA",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 104,
+            "label": "4U"
+          },
+          {
+            "id": 105,
+            "label": "EZ",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Amsterdam",
+    "racks": [
+      {
+        "id": 22,
+        "name": "A1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 106,
+            "label": "XW",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 107,
+            "label": "KS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 108,
+            "label": "RX",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 109,
+            "label": "ND",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 110,
+            "label": "ES",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "name": "A2",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 111,
+            "label": "GAS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 112,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 113,
+            "label": "BSD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 114,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 115,
+            "label": "CM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "name": "B1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 116,
+            "label": "AM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 117,
+            "label": "ZZU",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 118,
+            "label": "HA",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 119,
+            "label": "4U"
+          },
+          {
+            "id": 120,
+            "label": "EZ",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Dublin",
+    "racks": [
+      {
+        "id": 25,
+        "name": "A1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 121,
+            "label": "XW",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 122,
+            "label": "KS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 123,
+            "label": "RX",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 124,
+            "label": "ND",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 125,
+            "label": "ES",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "name": "A2",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 126,
+            "label": "GAS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 127,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 128,
+            "label": "BSD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 129,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 130,
+            "label": "CM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "name": "B1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 131,
+            "label": "AM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 132,
+            "label": "ZZU",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 133,
+            "label": "HA",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 134,
+            "label": "4U"
+          },
+          {
+            "id": 135,
+            "label": "EZ",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Paris",
+    "racks": [
+      {
+        "id": 28,
+        "name": "A1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 136,
+            "label": "XW",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 137,
+            "label": "KS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 138,
+            "label": "RX",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 139,
+            "label": "ND",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 140,
+            "label": "ES",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 29,
+        "name": "A2",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 141,
+            "label": "GAS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 142,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 143,
+            "label": "BSD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 144,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 145,
+            "label": "CM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "name": "B1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 146,
+            "label": "AM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 147,
+            "label": "ZZU",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 148,
+            "label": "HA",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 149,
+            "label": "4U"
+          },
+          {
+            "id": 150,
+            "label": "EZ",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Berlin",
+    "racks": [
+      {
+        "id": 31,
+        "name": "A1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 151,
+            "label": "XW",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 152,
+            "label": "KS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 153,
+            "label": "RX",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 154,
+            "label": "ND",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 155,
+            "label": "ES",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "A2",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 156,
+            "label": "GAS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 157,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 158,
+            "label": "BSD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 159,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 160,
+            "label": "CM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 33,
+        "name": "B1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 161,
+            "label": "AM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 162,
+            "label": "ZZU",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 163,
+            "label": "HA",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 164,
+            "label": "4U"
+          },
+          {
+            "id": 165,
+            "label": "EZ",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "London",
+    "racks": [
+      {
+        "id": 34,
+        "name": "A1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 166,
+            "label": "XW",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 167,
+            "label": "KS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 168,
+            "label": "RX",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 169,
+            "label": "ND",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 170,
+            "label": "ES",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 35,
+        "name": "A2",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 171,
+            "label": "GAS",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 172,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 173,
+            "label": "BSD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 174,
+            "label": "HD",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 175,
+            "label": "CM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "B1",
+        "waterTemperatureMin": null,
+        "waterTemperatureMax": null,
+        "waterFlowMin": null,
+        "waterFlowMax": null,
+        "processors": [
+          {
+            "id": 176,
+            "label": "AM",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 177,
+            "label": "ZZU",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 178,
+            "label": "HA",
+            "temperatureMin": null,
+            "temperatureMax": null
+          },
+          {
+            "id": 179,
+            "label": "4U"
+          },
+          {
+            "id": 180,
+            "label": "EZ",
+            "temperatureMin": null,
+            "temperatureMax": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "In construction",
+    "racks": []
+  }
+]

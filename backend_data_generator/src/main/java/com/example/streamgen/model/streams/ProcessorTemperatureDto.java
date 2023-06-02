@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class InputProcessorTemperatureDto {
+public class ProcessorTemperatureDto {
 
     private Long processorId;
     private Integer temperature;

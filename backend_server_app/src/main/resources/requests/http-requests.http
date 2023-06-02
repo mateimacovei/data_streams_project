@@ -401,3 +401,14 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/api/datacenters/entities
+
+
+
+###
+POST http://localhost:8080/api/reading/processor
+Content-Type: application/json
+
+{
+  "processorId": 1,
+  "temperature": 70
+}

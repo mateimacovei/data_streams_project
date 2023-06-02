@@ -75,3 +75,29 @@ create table if not exists incident
     insertion_date timestamp(6) not null
 );
 
+
+-- triggers:
+-- on insert processor reading:
+-- if the average temp on a processor in the last 5 min was > 100 and no MAX_TEMP incident on that cpu -> incident
+
+create or replace function check_processor_max_temp()
+    RETURNS trigger
+    language PLPGSQL
+AS
+$$
+BEGIN
+    RAISE NOTICE 'Value: %', NEW.temperature;
+END;
+$$;
+
+CREATE TRIGGER processor_max_temp_check
+    AFTER INSERT
+    ON processor_temperature
+EXECUTE PROCEDURE check_processor_max_temp();
+
+
+-- on insert flow reading:
+-- if the average flow in a waterBlock 5 min was < 5 and no NO_FLOW incident on that rack -> incident
+
+-- on insert cpu temp average:
+-- if the temp - last average temp of the waterBlock of the rack > 20 and no BAD_CONTACT incident on that cpu -> incident

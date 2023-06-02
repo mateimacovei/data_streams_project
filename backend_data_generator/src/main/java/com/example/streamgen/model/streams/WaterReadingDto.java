@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class InputWaterReadingDto {
+public class WaterReadingDto {
 
     private Long rackId;
     private Integer temperature;

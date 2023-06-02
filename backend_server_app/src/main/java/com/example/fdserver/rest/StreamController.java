@@ -1,14 +1,14 @@
 package com.example.fdserver.rest;
 
+import com.example.fdserver.rest.model.report.LineChartFullReportDto;
+import com.example.fdserver.rest.model.report.RequestReport;
 import com.example.fdserver.rest.model.streams.InputProcessorTemperatureDto;
 import com.example.fdserver.rest.model.streams.InputWaterReadingDto;
 import com.example.fdserver.service.StreamService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("api/stream/")
 @RequiredArgsConstructor
@@ -23,5 +23,20 @@ public class StreamController {
     @PostMapping("waterReading")
     public void inputWaterReading(@RequestBody InputWaterReadingDto inputWaterReadingDto) {
         service.inputWaterReading(inputWaterReadingDto);
+    }
+
+    @PostMapping("reportProcessorTemp")
+    public LineChartFullReportDto reportProcessorTemp(@RequestBody RequestReport requestReport) {
+        return service.reportProcessorTemp(requestReport);
+    }
+
+    @PostMapping("reportWaterTemp")
+    public LineChartFullReportDto reportWaterTemp(@RequestBody RequestReport reportWaterTemp) {
+        return service.reportWaterTemp(reportWaterTemp);
+    }
+
+    @PostMapping("reportWaterFlow")
+    public LineChartFullReportDto reportWaterFlow(@RequestBody RequestReport reportWaterFlow) {
+        return service.reportWaterFlow(reportWaterFlow);
     }
 }

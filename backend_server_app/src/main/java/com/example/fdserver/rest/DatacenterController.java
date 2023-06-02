@@ -10,8 +10,9 @@ import com.example.fdserver.service.EntitiesCrudServer;
 
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin("*")
 @RestController
-@RequestMapping("api/datacenters/")
+@RequestMapping("api/datacenters")
 @RequiredArgsConstructor
 public class DatacenterController {
 

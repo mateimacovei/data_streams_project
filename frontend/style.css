@@ -1,0 +1,11 @@
+.box {
+    border: 3px solid #666;
+    background-color: #ddd;
+    border-radius: .5em;
+    padding: 10px;
+}
+
+.label_selected {
+    color: #fff;
+    background-color: #0d6efd;
+}

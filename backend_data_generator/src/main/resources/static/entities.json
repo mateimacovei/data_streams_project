@@ -6,15 +6,15 @@
       {
         "id": 19,
         "name": "A1",
-        "waterTemperatureMin": null,
-        "waterTemperatureMax": null,
+        "waterTemperatureMin": 40,
+        "waterTemperatureMax": 60,
         "waterFlowMin": null,
         "waterFlowMax": null,
         "processors": [
           {
             "id": 91,
             "label": "XW",
-            "temperatureMin": null,
+            "temperatureMin": 90,
             "temperatureMax": null
           },
           {

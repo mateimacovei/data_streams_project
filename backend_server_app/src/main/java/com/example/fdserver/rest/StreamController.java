@@ -1,7 +1,6 @@
 package com.example.fdserver.rest;
 
-import com.example.fdserver.rest.model.report.LineChartFullReportDto;
-import com.example.fdserver.rest.model.report.RequestReport;
+import com.example.fdserver.rest.model.report.*;
 import com.example.fdserver.rest.model.streams.InputProcessorTemperatureDto;
 import com.example.fdserver.rest.model.streams.InputWaterReadingDto;
 import com.example.fdserver.service.StreamService;
@@ -38,5 +37,10 @@ public class StreamController {
     @PostMapping("reportWaterFlow")
     public LineChartFullReportDto reportWaterFlow(@RequestBody RequestReport reportWaterFlow) {
         return service.reportWaterFlow(reportWaterFlow);
+    }
+
+    @PostMapping ("incidentsReport")
+    public IncidentsReport incidentsReport(@RequestBody ReportIncidentsRequest reportIncidentsRequest){
+        return service.reportIncidents(reportIncidentsRequest);
     }
 }

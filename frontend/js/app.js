@@ -12,7 +12,15 @@ function getFormattedDate(date_string) {
 
 $(function () {
 
-    var dateFormat = "mm/dd/yy",
+    const to = $("#to").datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3
+    })
+        .on("change", function () {
+            from.datepicker("option", "maxDate", getDate(this));
+        });
+    const dateFormat = "mm/dd/yy",
         from = $("#from")
             .datepicker({
                 defaultDate: "+1w",
@@ -21,18 +29,10 @@ $(function () {
             })
             .on("change", function () {
                 to.datepicker("option", "minDate", getDate(this));
-            }),
-        to = $("#to").datepicker({
-            defaultDate: "+1w",
-            changeMonth: true,
-            numberOfMonths: 3
-        })
-            .on("change", function () {
-                from.datepicker("option", "maxDate", getDate(this));
             });
 
     function getDate(element) {
-        var date;
+        let date;
         try {
             date = $.datepicker.parseDate(dateFormat, element.value);
         } catch (error) {
@@ -42,11 +42,12 @@ $(function () {
         return date;
     }
 
-    var valuesType = "AVERAGE"
+    let valuesType = "AVERAGE";
+    let interpolation_points_nr = 3;
 
-    function create_line_graph(graph_parent_div, url, rack_id) {
+    function create_line_graph(graph_parent_div, url, identifierId) {
         graph_parent_div.empty()
-        var canvasHtml = $("<canvas>").attr("id", "myChartCanvas").appendTo(graph_parent_div)
+        const canvasHtml = $("<canvas>").attr("id", "myChartCanvas").appendTo(graph_parent_div);
         $.ajax({
             type: "POST",
             url: url,
@@ -54,12 +55,13 @@ $(function () {
             contentType: 'application/json',
             data: JSON.stringify({
                 valuesType: valuesType,
-                identifierId: rack_id,
+                identifierId: identifierId,
+                interpolationPoints:interpolation_points_nr,
                 from: getFormattedDate(document.getElementById("from").value) + "t00:00",
                 to: getFormattedDate(document.getElementById("to").value) + "t23:59"
             }),
             success: function (data) {
-                var line_chart = new Chart(canvasHtml, {
+                new Chart(canvasHtml, {
                     type: 'line',
                     data: data,
                     options: {
@@ -73,7 +75,7 @@ $(function () {
                             }
                         }
                     }
-                })
+                });
             }
         })
     }
@@ -81,20 +83,55 @@ $(function () {
     function create_values_type_selector() {
         let selectors = $("<div>").attr("class", "row align-items-center").appendTo(main_container);
         let value_type_selector = $("<div>").attr("class", "col").appendTo(selectors);
+        let interpolation_nr_selector = $("<div>").attr("class", "col").appendTo(selectors);
 
         let op1 = $("<div>").addClass("form-check").appendTo(value_type_selector)
         let r1 = $("<input>").addClass("form-check-input").attr("type", "radio").attr("name", "flexRadioDefault").attr("id", "flexRadioDefault1").appendTo(op1)
         $("<label>").addClass("form-check-label").attr("for", "flexRadioDefault1").html("See values").appendTo(op1)
         r1.change(function () {
             valuesType = "VALUE"
+            interpolation_nr_selector.hide();
         });
 
         let op2 = $("<div>").addClass("form-check").appendTo(value_type_selector)
-        let r2 = $("<input>").addClass("form-check-input").attr("type", "radio").attr("name", "flexRadioDefault").attr("id", "flexRadioDefault2").appendTo(op2)
+        let r2 = $("<input>").addClass("form-check-input").attr("type", "radio").attr("name", "flexRadioDefault").attr("id", "flexRadioDefault2").attr("checked",'').appendTo(op2)
         $("<label>").addClass("form-check-label").attr("for", "flexRadioDefault2").html("See average values").appendTo(op2)
         r2.change(function () {
             valuesType = "AVERAGE"
+            interpolation_nr_selector.hide();
         });
+        // default for active element
+        interpolation_nr_selector.hide();
+
+        let op3 = $("<div>").addClass("form-check").appendTo(value_type_selector)
+        let r3 = $("<input>").addClass("form-check-input").attr("type", "radio").attr("name", "flexRadioDefault").attr("id", "flexRadioDefault3").appendTo(op3)
+        $("<label>").addClass("form-check-label").attr("for", "flexRadioDefault3").html("See interpolated values").appendTo(op3)
+        r3.change(function () {
+            valuesType = "VALUE_INTERPOLATED"
+            interpolation_nr_selector.show();
+        });
+
+        let op4 = $("<div>").addClass("form-check").appendTo(value_type_selector)
+        let r4 = $("<input>").addClass("form-check-input").attr("type", "radio").attr("name", "flexRadioDefault").attr("id", "flexRadioDefault4").appendTo(op4)
+        $("<label>").addClass("form-check-label").attr("for", "flexRadioDefault4").html("See interpolated average values").appendTo(op4)
+        r4.change(function () {
+            valuesType = "AVERAGE_INTERPOLATED"
+            interpolation_nr_selector.show();
+        });
+
+        let row = $("<div>").attr("class", "row").appendTo(interpolation_nr_selector);
+        let section = $("<section>").attr("class", "w-100 p-4 d-flex text-center").appendTo(row);
+        let form_outline = $("<div>").attr("class", "form-outline").attr("style", "width: 22rem;").appendTo(section);
+        $("<input>").attr("type", "number").attr("id", "typeNumber").attr("class", "form-control").attr("min", "3").attr("value", "10").appendTo(form_outline)
+            .on("change",(changeEvent)=>{
+                interpolation_points_nr=changeEvent.target.value
+                console.log(interpolation_points_nr);
+            });
+        $("<label>").attr("class", "form-label").attr("htmlFor", "typeNumber").attr("style", "margin-left: 0px;").html("Interpolation points (min 3)").appendTo(form_outline)
+        let form_notch = $("<div>").attr("class", "form-notch").appendTo(form_outline);
+        $("<div>").attr("class", "form-notch-leading").appendTo(form_notch);
+        $("<div>").attr("class", "form-notch-middle").appendTo(form_notch);
+        $("<div>").attr("class", "form-notch-trailing").appendTo(form_notch);
     }
 
 

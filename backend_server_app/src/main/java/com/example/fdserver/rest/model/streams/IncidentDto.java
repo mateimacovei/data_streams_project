@@ -14,10 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class IncidentDto {
 
-    private Long datacenterId;
-    private Long rackId;
-    private Long processorId;
-    private IncidentType incidentType;
-    private String incidentValue;
-    private LocalDate insertionDate;
+    private String description;
+    private String date;
 }

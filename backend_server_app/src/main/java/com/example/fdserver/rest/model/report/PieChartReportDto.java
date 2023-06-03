@@ -15,5 +15,5 @@ import java.util.Map;
 @AllArgsConstructor
 public class PieChartReportDto {
     private List<String> labels;
-    private List<Map.Entry<String, List<Integer>>> values;
+    private List<Map.Entry<String, List<Integer>>> datasets;
 }

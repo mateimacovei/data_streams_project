@@ -10,6 +10,26 @@ function getFormattedDate(date_string) {
     return date_string.slice(6, 10) + '-' + date_string[0] + date_string[1] + '-' + date_string[3] + date_string[4]
 }
 
+function getLabel(data, datasetIndex, dataIndex) {
+    let labelIndex = 0;
+    for (let i = 0; i < datasetIndex; i++) {
+        labelIndex += data.datasets[i].data.length;
+    }
+    return data.labels[labelIndex + dataIndex];
+}
+
+function getDatasetIndex(datasets, labelIndex) {
+    let copy = labelIndex;
+    let datasetIndex = 0;
+    while (copy > 0) {
+        copy = copy - datasets[datasetIndex].data.length;
+        if(copy >= 0) {
+            datasetIndex++;
+        }
+    }
+    return datasetIndex;
+}
+
 $(function () {
 
     const to = $("#to").datepicker({
@@ -56,7 +76,7 @@ $(function () {
             data: JSON.stringify({
                 valuesType: valuesType,
                 identifierId: identifierId,
-                interpolationPoints:interpolation_points_nr,
+                interpolationPoints: interpolation_points_nr,
                 from: getFormattedDate(document.getElementById("from").value) + "t00:00",
                 to: getFormattedDate(document.getElementById("to").value) + "t23:59"
             }),
@@ -77,7 +97,7 @@ $(function () {
                     }
                 });
             }
-        })
+        });
     }
 
     function create_values_type_selector() {
@@ -94,7 +114,7 @@ $(function () {
         });
 
         let op2 = $("<div>").addClass("form-check").appendTo(value_type_selector)
-        let r2 = $("<input>").addClass("form-check-input").attr("type", "radio").attr("name", "flexRadioDefault").attr("id", "flexRadioDefault2").attr("checked",'').appendTo(op2)
+        let r2 = $("<input>").addClass("form-check-input").attr("type", "radio").attr("name", "flexRadioDefault").attr("id", "flexRadioDefault2").attr("checked", '').appendTo(op2)
         $("<label>").addClass("form-check-label").attr("for", "flexRadioDefault2").html("See average values").appendTo(op2)
         r2.change(function () {
             valuesType = "AVERAGE"
@@ -123,8 +143,8 @@ $(function () {
         let section = $("<section>").attr("class", "w-100 p-4 d-flex text-center").appendTo(row);
         let form_outline = $("<div>").attr("class", "form-outline").attr("style", "width: 22rem;").appendTo(section);
         $("<input>").attr("type", "number").attr("id", "typeNumber").attr("class", "form-control").attr("min", "3").attr("value", "10").appendTo(form_outline)
-            .on("change",(changeEvent)=>{
-                interpolation_points_nr=changeEvent.target.value
+            .on("change", (changeEvent) => {
+                interpolation_points_nr = changeEvent.target.value
                 console.log(interpolation_points_nr);
             });
         $("<label>").attr("class", "form-label").attr("htmlFor", "typeNumber").attr("style", "margin-left: 0px;").html("Interpolation points (min 3)").appendTo(form_outline)
@@ -209,7 +229,90 @@ $(function () {
 
     $("#btnradio4").on('click', () => {
         // incidents
-        main_container.empty()
+        main_container.empty();
+
+        const sub_main_container = $("<div>").attr("class", "row").appendTo(main_container);
+        const incident_list = $("<div>").attr("class", "col-6").appendTo(sub_main_container);
+        const graph_holder = $("<div>").attr("class", "col-6").appendTo(sub_main_container);
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/stream/incidentsReport",
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                from: getFormattedDate(document.getElementById("from").value) + "t00:00",
+                to: getFormattedDate(document.getElementById("to").value) + "t23:59"
+            }),
+            success: function (data) {
+                let incident_strings_list = data.incidents;
+                for (let i = 0; i < incident_strings_list.length; i++) {
+                    $("<button>").addClass("list-group-item list-group-item-action").attr("type", "button")
+                        .attr("data-toggle","tooltip").attr("data-placement","right").attr("title",incident_strings_list[i].date).html(incident_strings_list[i].description).appendTo(incident_list)
+                }
+                $('[data-toggle="tooltip"]').tooltip() // required to display the dates
+
+                console.log(data.pieChartReport)
+
+                const canvasHtmlPieChart = $("<canvas>").attr("id", "myPieChartCanvas").appendTo(graph_holder);
+                new Chart(canvasHtmlPieChart, {
+                    type: 'pie',
+                    data: data.pieChartReport,
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    generateLabels: function (chart) {
+                                        // Get the default label list
+                                        const original = Chart.overrides.pie.plugins.legend.labels.generateLabels;
+                                        const labelsOriginal = original.call(this, chart);
+
+                                        // Build an array of colors used in the datasets of the chart
+                                        let datasetColors = chart.data.datasets.map(function (e) {
+                                            return e.backgroundColor;
+                                        });
+                                        datasetColors = datasetColors.flat();
+
+                                        // Modify the color and hide state of each label
+                                        labelsOriginal.forEach(label => {
+                                            // // There are twice as many labels as there are datasets. This converts the label index into the corresponding dataset index
+                                            // label.datasetIndex = (label.index - label.index % 2) / 2;
+                                            label.datasetIndex = getDatasetIndex(chart.data.datasets, label.index);
+
+                                            // The hidden state must match the dataset's hidden state
+                                            label.hidden = !chart.isDatasetVisible(label.datasetIndex);
+
+                                            // Change the color to match the dataset
+                                            label.fillStyle = datasetColors[label.index];
+                                        });
+
+                                        return labelsOriginal;
+                                    }
+                                },
+                                onClick: function (mouseEvent, legendItem, legend) {
+                                    // toggle the visibility of the dataset from what it currently is
+                                    legend.chart.getDatasetMeta(
+                                        legendItem.datasetIndex
+                                    ).hidden = legend.chart.isDatasetVisible(legendItem.datasetIndex);
+                                    legend.chart.update();
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    title: function (context) {
+                                        return getLabel(context[0].chart.data, context[0].datasetIndex, context[0].dataIndex);
+                                    },
+                                    label: function (context) {
+                                        return 'value: ' + context.formattedValue;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
     })
 
 

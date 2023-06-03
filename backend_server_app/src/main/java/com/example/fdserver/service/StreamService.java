@@ -21,7 +21,6 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -238,7 +237,7 @@ public class StreamService {
 
         var groupsByDatacenter = incidents.stream().collect(Collectors.groupingBy(IncidentWithNames::getDatacenterId)).entrySet().stream().toList();
         report.getLabels().addAll(groupsByDatacenter.stream().map(x->x.getValue().get(0).getDatacenter()).toList());
-        report.getValues().add(Map.entry("data",groupsByDatacenter.stream().map(x->x.getValue().size()).toList()));
+        report.getDatasets().add(Map.entry("data",groupsByDatacenter.stream().map(x->x.getValue().size()).toList()));
 
         var groupsByType = incidents.stream().collect(Collectors.groupingBy(IncidentWithNames::getIncidentType)).entrySet().stream().toList();
         report.getLabels().addAll(groupsByType.stream().map(x->switch (x.getKey()){
@@ -246,7 +245,7 @@ public class StreamService {
             case NO_FLOW -> "Bad water flow";
             case BAD_CONTACT -> "Bad cpu contact";
         }).toList());
-        report.getValues().add(Map.entry("data",groupsByType.stream().map(x->x.getValue().size()).toList()));
+        report.getDatasets().add(Map.entry("data",groupsByType.stream().map(x->x.getValue().size()).toList()));
 
         return IncidentsReport.builder().incidents(incidents.stream().map(this::fromIncidentToString).toList()).pieChartReport(report).build();
     }
@@ -256,11 +255,11 @@ public class StreamService {
                 .builder()
                 .description(switch (incident.getIncidentType()) {
                     case MAX_TEMP ->
-                            "In " + incident.getDatacenterId() + " on rack " + incident.getRack() + " at processor " + incident.getProcessor() + " is at the temperature of " + incident.getIncidentValue();
+                            "In " + incident.getDatacenter() + " on rack " + incident.getRack() + " at processor " + incident.getProcessor() + " is at the temperature of " + incident.getIncidentValue();
                     case NO_FLOW ->
-                            "Low water flow detected in " + incident.getDatacenterId() + " on rack " + incident.getRack();
+                            "Low water flow detected in " + incident.getDatacenter() + " on rack " + incident.getRack();
                     case BAD_CONTACT ->
-                            "Possible bad cpu contact detected in " + incident.getDatacenterId() + " on rack " + incident.getRack() + " at processor " + incident.getProcessor();
+                            "Possible bad cpu contact detected in " + incident.getDatacenter() + " on rack " + incident.getRack() + " at processor " + incident.getProcessor();
                 })
                 .date(incident.getInsertionDate().toString().substring(0,19).replace("T", " "))
                 .build();

@@ -52,7 +52,12 @@ $(function () {
             url: url,
             dataType: 'json',
             contentType: 'application/json',
-            data: JSON.stringify({ valuesType: valuesType, identifierId: rack_id, from: getFormattedDate(document.getElementById("from").value) + "t00:00", to: getFormattedDate(document.getElementById("to").value) + "t23:59" }),
+            data: JSON.stringify({
+                valuesType: valuesType,
+                identifierId: rack_id,
+                from: getFormattedDate(document.getElementById("from").value) + "t00:00",
+                to: getFormattedDate(document.getElementById("to").value) + "t23:59"
+            }),
             success: function (data) {
                 var line_chart = new Chart(canvasHtml, {
                     type: 'line',
@@ -111,16 +116,16 @@ $(function () {
                 $("<button>").addClass("list-group-item list-group-item-action").attr("type", "button").html(data[i].name)
                     .appendTo(datacenter_list).on('click', () => {
 
-                        rack_list.empty();
-                        getRacks(data[i].id, (racks_data) => {
-                            for (let j = 0; j < racks_data.length; j++) {
-                                $("<button>").addClass("list-group-item list-group-item-action").attr("type", "button").html(racks_data[j].name)
-                                    .appendTo(rack_list).on('click', () => {
-                                        create_line_graph(graph, "http://localhost:8080/api/stream/reportProcessorTemp", racks_data[j].id);
-                                    });
-                            }
-                        })
-                    });
+                    rack_list.empty();
+                    getRacks(data[i].id, (racks_data) => {
+                        for (let j = 0; j < racks_data.length; j++) {
+                            $("<button>").addClass("list-group-item list-group-item-action").attr("type", "button").html(racks_data[j].name)
+                                .appendTo(rack_list).on('click', () => {
+                                create_line_graph(graph, "http://localhost:8080/api/stream/reportProcessorTemp", racks_data[j].id);
+                            });
+                        }
+                    })
+                });
             }
         });
     })
@@ -139,8 +144,8 @@ $(function () {
             for (let i = 0; i < data.length; i++) {
                 $("<button>").addClass("list-group-item list-group-item-action").attr("type", "button").html(data[i].name)
                     .appendTo(datacenter_list).on('click', () => {
-                        create_line_graph(graph, "http://localhost:8080/api/stream/reportWaterTemp", data[i].id);
-                    });
+                    create_line_graph(graph, "http://localhost:8080/api/stream/reportWaterTemp", data[i].id);
+                });
             }
         });
     })
@@ -159,8 +164,8 @@ $(function () {
             for (let i = 0; i < data.length; i++) {
                 $("<button>").addClass("list-group-item list-group-item-action").attr("type", "button").html(data[i].name)
                     .appendTo(datacenter_list).on('click', () => {
-                        create_line_graph(graph, "http://localhost:8080/api/stream/reportWaterFlow", data[i].id);
-                    });
+                    create_line_graph(graph, "http://localhost:8080/api/stream/reportWaterFlow", data[i].id);
+                });
             }
         });
     })

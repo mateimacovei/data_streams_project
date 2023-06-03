@@ -15,9 +15,4 @@ import java.util.stream.IntStream;
 public class LineChartFullReportDto {
     private List<Integer> labels;
     private List<LineChartReportDto> datasets;
-
-    public LineChartFullReportDto(List<LineChartReportDto> datasets) {
-        this.datasets = datasets;
-        this.labels = IntStream.rangeClosed(1, datasets.stream().mapToInt(x->x.getData().size()).max().orElse(1)).boxed().toList();
-    }
 }

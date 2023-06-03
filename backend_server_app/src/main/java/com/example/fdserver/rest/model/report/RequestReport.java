@@ -17,4 +17,6 @@ public class RequestReport {
 
     private LocalDateTime from;
     private LocalDateTime to;
+
+    private Integer interpolationPoints;
 }

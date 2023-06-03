@@ -32,7 +32,6 @@ import static com.example.fdserver.service.DtoConvertor.*;
 @RequiredArgsConstructor
 public class StreamService {
     private final IncidentRepo incidentRepo;
-    private final DatacenterRepo datacenterRepo;
 
     private final ProcessorRepo processorRepo;
     private final ProcessorTemperatureAverageRepo processorTemperatureAverageRepo;
